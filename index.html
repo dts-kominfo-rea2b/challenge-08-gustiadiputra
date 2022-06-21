@@ -42,27 +42,29 @@
       // TODO: Deklarasi variable sesuai dengan kebutuhan di sini
       let button = document.querySelector("#todo-submit");
       let input = document.querySelector("#todo-input");
-      let output = document.querySelector("#todo-output");
+      let output = document.querySelector("#todo-output")
 
       // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
-        output.appendChild(createElement(toDoItem));
+          output.appendChild(createList(toDoItem));         
       }
-
-      function createElement(name){
+      
+      function createList(name){
         let li = document.createElement('li');
         li.textContent = name;
         li.className = 'list-item';
         return li;
       }
-
+             
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
+
+       
       button.addEventListener('click', () => {
-        const val = input.value;      
-        fnClickHandler(val);
+        const isi = input.value;      
+        fnClickHandler(isi);
         input.value = '';
       });
       
@@ -70,11 +72,11 @@
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
       input.addEventListener('keypress', (event) => {
         if (event.key === "Enter") {
-          const val = input.value;      
-          fnClickHandler(val);
-          input.value = '';
-        }
-      });
+        const isi = input.value;      
+        fnClickHandler(isi);
+        input.value = '';
+      }
+        });
     </script>
   </body>
 </html>
